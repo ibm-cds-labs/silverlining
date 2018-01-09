@@ -238,7 +238,7 @@ describe('db', function() {
       ]
     };
     var mocks = nock(SERVER)
-      .post('/mydb/_find',{ selector: { collection:'dogs'}}).reply(200, reply);
+      .post('/mydb/_find',{ selector: { collection:'dogs'}, limit: 100}).reply(200, reply);
 
     return nosql.query({collection:'dogs'}).then(function(data) {
       assert.equal(data.length, 3);
@@ -272,7 +272,7 @@ describe('db', function() {
       ]
     };
     var mocks = nock(SERVER)
-      .post('/mydb/_find',{ selector: { collection:'dogs'}}).reply(200, reply);
+      .post('/mydb/_find',{ selector: { collection:'dogs'}, limit:100}).reply(200, reply);
 
     return nosql.query({ selector: {collection:'dogs'}}).then(function(data) {
       assert.equal(data.length, 3);
@@ -318,7 +318,7 @@ describe('db', function() {
       ]
     };
     var mocks = nock(SERVER)
-      .post('/mydb/_find',{ selector: { collection:'dogs'}, sort:[{'name:string':'asc'}]}).reply(200, reply);
+      .post('/mydb/_find',{ selector: { collection:'dogs'}, sort:[{'name:string':'asc'}], limit:100}).reply(200, reply);
 
     return nosql.query({collection:'dogs'},{ sort:[{'name:string':'asc'}] }).then(function(data) {
       assert.equal(data.length, 3);
@@ -341,7 +341,7 @@ describe('db', function() {
       ]
     };
     var mocks = nock(SERVER)
-      .post('/mydb/_find',{ selector: { collection:'dogs'}, sort:[{'name:string':'desc'}]}).reply(200, reply);
+      .post('/mydb/_find',{ selector: { collection:'dogs'}, sort:[{'name:string':'desc'}], limit:100}).reply(200, reply);
 
     return nosql.query({collection:'dogs'}, {sort: [{'name:string':'desc'}]}).then(function(data) {
       assert.equal(data.length, 3);
@@ -387,7 +387,7 @@ describe('db', function() {
       ]
     };
     var mocks = nock(SERVER)
-      .post('/mydb/_find',{ selector: { collection:'dogs'}, sort:[{'a:number':'desc'}], fields: ['a','collection']}).reply(200, reply);
+      .post('/mydb/_find',{ selector: { collection:'dogs'}, sort:[{'a:number':'desc'}], fields: ['a','collection'], limit:100}).reply(200, reply);
 
     return nosql.query({collection:'dogs'},{fields: ['a','collection'], sort: {'a:number':'desc'}}).then(function(data) {
       assert.equal(data.length, 3);
