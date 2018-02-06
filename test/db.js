@@ -13,19 +13,19 @@ describe('db', function() {
   });
 
   it('should have the requisite functions', function() {
-    assert(typeof db.create, 'function');
-    assert(typeof db.info, 'function');
-    assert(typeof db.list, 'function');
-    assert(typeof db.designdocs, 'function');
-    assert(typeof db.query, 'function');
-    assert(typeof db.insert, 'function');
-    assert(typeof db.update, 'function');
-    assert(typeof db.upsert, 'function');
-    assert(typeof db.get, 'function');
-    assert(typeof db.del, 'function');
-    assert(typeof db.delete, 'function');
-    assert(typeof db.count, 'function');
-    assert(typeof db.stats, 'function');                    
+    assert.equal(typeof db.create, 'function');
+    assert.equal(typeof db.info, 'function');
+    assert.equal(typeof db.list, 'function');
+    assert.equal(typeof db.designdocs, 'function');
+    assert.equal(typeof db.query, 'function');
+    assert.equal(typeof db.insert, 'function');
+    assert.equal(typeof db.update, 'function');
+    assert.equal(typeof db.upsert, 'function');
+    assert.equal(typeof db.get, 'function');
+    assert.equal(typeof db.del, 'function');
+    assert.equal(typeof db.delete, 'function');
+    assert.equal(typeof db.count, 'function');
+    assert.equal(typeof db.stats, 'function');                    
   });
 
   it('list - should get databases without _users & _replicator', function() {
