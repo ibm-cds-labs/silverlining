@@ -566,6 +566,18 @@ describe('db', function() {
     });
   });
 
+  it('update - should update a _security document', function() {
+    var thedoc = { cloudant: {} };
+    var mocks = nock(SERVER)
+      .put('/mydb/_security', thedoc).reply(200, {ok: true, id: '_security'});
+
+    return nosql.update('_security', thedoc).then(function(data) {
+      assert(mocks.isDone());
+    }).catch(function(err) {
+      assert(false);
+    });
+  });
+
   it('del - should delete a document', function() {
     var thedoc = { _id: 'myddoc', _rev: '1-123', a:1, b:2 };
     var mocks = nock(SERVER)
