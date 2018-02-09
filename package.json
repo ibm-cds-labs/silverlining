@@ -33,6 +33,7 @@
   "devDependencies": {
     "istanbul": "^0.4.5",
     "mocha": "^3.5.3",
-    "nock": "^9.1.6"
+    "nock": "^9.1.6",
+    "standard": "^10.0.3"
   }
 }
